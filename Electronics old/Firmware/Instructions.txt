@@ -1,0 +1,34 @@
+Le TP se déroule en étapes, à faire valider à chaque fois :
+
+0/ Boot from scratch
+
+Créer un nouveau projet et y ajouter un nouveau .h contenant des typedefs pour :
+- u8, u16 et u32
+- s8, s16 et s32
+
+1/ Commande de la LED par le bouton (a.k.a Hello World!)
+
+Une pression sur le bouton allume la led
+Une autre pression sur le bouton éteint la led
+
+2/ Clignotement de la LED
+
+La led clignotte au rythme d'un changement d'état par seconde (0.5Hz, 1s on/1s off).
+Une pression sur le bouton multiplie par deux le rythme de clignotement. Arrivé à 8Hz, une pression sur le bouton remet le rythme à 0.5Hz.
+
+La "séquence" sera donc : 0.5Hz, 1Hz, 2Hz, 4Hz, 8hZ, 0.5Hz, 1Hz, ...
+
+Vous devez utiliser un timer pour régler la vitesse de clignotement
+
+3/ Utilisation des interruptions
+
+Votre code doit maintenant être "non bloquant", votre main loop ne doit contenir qu'un statement: clear watchdog
+Le clignotement ainsi que la gestion du bouton doivent être fait dans une ISR.
+
+4/ DIM de la LED (a.k.a pour-les-vrais-qui-en-ont-dans-le-slip-ou-le-string)
+
+Votre code fait toujours la même chose, mais sur un appui long (>2s) la led passe en mode DIM, en 5s son intensité passe de 0 à 100% puis de 100% à 0% (et ainsi de suite)
+
+Pour cela vous coderez en firmware un PWM sur la GPIO qui contrôle la LED.
+
+5/ Ca y est, vous savez tout faire, elle est pas belle la vie ?
